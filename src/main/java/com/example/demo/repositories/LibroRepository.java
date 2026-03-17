@@ -56,5 +56,13 @@ public class LibroRepository {
         this.listaLibros.set(posicion, libro);
         return libro;
     }
+    //eliminar
+
+    public void deleteById(Long id){
+        Libro libro = this.findById(id);
+        if(libro != null){
+            this.listaLibros.remove(libro);
+        }
+    }
 
 }
