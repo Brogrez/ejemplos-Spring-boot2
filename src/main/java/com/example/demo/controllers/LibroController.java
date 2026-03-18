@@ -5,6 +5,7 @@ import com.example.demo.models.Libro;
 import com.example.demo.services.LibroService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.config.RepositoryNameSpaceHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -29,6 +30,11 @@ public class LibroController {
 
     public ResponseEntity<Libro> findByid(@PathVariable Long id){
         Libro libro = this.libroService.getLibroById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(libro);
+    }
+
+    public ResponseEntity<Libro> findByIsbn(String isbn){
+        Libro libro = this.libroService.getLibroByIsbn(isbn);
         return ResponseEntity.status(HttpStatus.OK).body(libro);
     }
 

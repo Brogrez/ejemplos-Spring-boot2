@@ -25,7 +25,8 @@ public class LibroService {
     }
 
     public Libro getLibroByIsbn(String isbn){
-        return null;
+
+        return this.libroRepository.findByisbn(isbn);
     }
 
     public Libro save(Libro libroNew){
