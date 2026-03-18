@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Libro;
 import com.example.demo.services.LibroService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class LibroController {
     }
 
     @PostMapping
-    public ResponseEntity<Libro> Save(@RequestBody Libro libro){
+    public ResponseEntity<Libro> Save(@Valid @RequestBody Libro libro){
 
     }
 

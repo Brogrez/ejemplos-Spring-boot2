@@ -43,7 +43,7 @@ public class LibroRepository {
 
     //actualizar
     public Libro update(Libro libro){
-        long id = 0l:
+        long id = 0l;
         int posicion = 0;
 
         for(int i = 0 ; i < this.listaLibros.size() ; i++){
