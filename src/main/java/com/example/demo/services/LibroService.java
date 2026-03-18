@@ -16,7 +16,7 @@ public class LibroService {
 
 
     public List<Libro> getAll(){
-        return null;
+        return this.libroRepository.findAll();
     }
 
     public Libro getLibroById(long id){
@@ -28,7 +28,7 @@ public class LibroService {
     }
 
     public Libro save(Libro libroNew){
-        return null;
+        return this.libroRepository.save(libroNew);
 
     }
 
