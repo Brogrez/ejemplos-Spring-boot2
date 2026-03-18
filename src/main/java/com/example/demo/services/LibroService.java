@@ -4,6 +4,7 @@ import com.example.demo.models.Libro;
 import com.example.demo.repositories.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,13 +15,13 @@ public class LibroService {
     @Autowired
     private LibroRepository libroRepository;
 
-
-    public List<Libro> getAll(){
+    @Transactional(readOnly = true)
+    public List<Libro> getAll() {
         return this.libroRepository.findAll();
     }
 
     public Libro getLibroById(long id){
-        return null;
+        return this.libroRepository.findById(id);
     }
 
     public Libro getLibroByIsbn(String isbn){
@@ -33,10 +34,10 @@ public class LibroService {
     }
 
     public Libro update(Libro libroUpdate){
-        return null;
+        return this.libroRepository.update(libroUpdate);
     }
 
     public void delete(Long id){
-
+        this.libroRepository.deleteById(id);
     }
 }
